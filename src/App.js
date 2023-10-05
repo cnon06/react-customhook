@@ -5,14 +5,18 @@ function App() {
   const [press, setPress] = useState(false);
   const [press2, setPress2] = useState(false);
 
+  // when the component render firstly
+
   useEffect(() => {
     console.log("A");
   }, []);
 
+  // it works with any render
   useEffect(() => {
     console.log("B");
   });
 
+  // it works when only press2 state is set
   useEffect(() => {
     console.log("C");
   }, [press2]);
