@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [press, setPress] = useState(false);
+  const [press2, setPress2] = useState(false);
+
+  useEffect(() => {
+    console.log("A");
+  }, []);
+
+  useEffect(() => {
+    console.log("B");
+  });
+
+  useEffect(() => {
+    console.log("C");
+  }, [press2]);
+
+  const handleClick = () => {
+    setPress(!press);
+    console.log(press);
+  };
+
+  const handleClick2 = () => {
+    setPress2(!press2);
+    console.log(press2);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>Press</button>
+      <button onClick={handleClick2}>Press</button>
     </div>
   );
 }
